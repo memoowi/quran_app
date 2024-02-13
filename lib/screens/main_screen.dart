@@ -47,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Quran App',
           style: TextStyle(
             color: Colors.white,
@@ -69,18 +69,18 @@ class _MainScreenState extends State<MainScreen> {
               future: surahs,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (snapshot.hasData) {
                   return ListView.builder(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     controller: _scrollController,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
                       final surah = snapshot.data![index];
                       return Container(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           border: Border.all(),
                           borderRadius: BorderRadius.circular(10),
@@ -103,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
                             children: [
                               Text(
                                 '${surah.namaLatin!} - ${surah.nama!}',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -129,7 +129,7 @@ class _MainScreenState extends State<MainScreen> {
                 } else if (snapshot.hasError) {
                   return Text('${snapshot.error}');
                 } else {
-                  return Text('No data');
+                  return const Text('No data');
                 }
               }),
         ),
@@ -138,7 +138,7 @@ class _MainScreenState extends State<MainScreen> {
         onPressed: () {
           _scrollController.animateTo(
             0,
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
             curve: Curves.easeInOut,
           );
         },

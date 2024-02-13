@@ -40,7 +40,7 @@ class _AudioScreenState extends State<AudioScreen> {
             ),
           ],
         ),
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           fontSize: 14.0,
           fontWeight: FontWeight.w700,
         ),
@@ -55,21 +55,21 @@ class _AudioScreenState extends State<AudioScreen> {
             children: [
               Text(
                 widget.data.nama!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
                 widget.data.namaLatin!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
                 widget.data.arti!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w700,
                   color: Colors.grey,
@@ -78,20 +78,21 @@ class _AudioScreenState extends State<AudioScreen> {
               Text(
                 widget.data.deskripsi!,
                 textAlign: TextAlign.justify,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w700,
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => SizedBox(height: 10.0),
+                physics: const NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 10.0),
                 itemCount: widget.data.audioFull!.audioList!.length,
                 itemBuilder: (context, index) => Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
                     border: Border.all(
@@ -106,27 +107,27 @@ class _AudioScreenState extends State<AudioScreen> {
                         padding: const EdgeInsets.all(10.0),
                         child: Text(
                           '${index + 1}.',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                       )),
                       IconButton(
-                        icon: Icon(Icons.play_arrow),
+                        icon: const Icon(Icons.play_arrow),
                         onPressed: () async {
                           await player.play(UrlSource(
                               widget.data.audioFull!.audioList![index]));
                         },
                       ),
                       IconButton(
-                        icon: Icon(Icons.pause),
+                        icon: const Icon(Icons.pause),
                         onPressed: () {
                           player.pause();
                         },
                       ),
                       IconButton(
-                        icon: Icon(Icons.stop),
+                        icon: const Icon(Icons.stop),
                         onPressed: () {
                           player.stop();
                         },

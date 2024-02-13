@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: '/',
       routes: {
-        '/': (context) => MainScreen(),
+        '/': (context) => const MainScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
